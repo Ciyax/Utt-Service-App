@@ -1,0 +1,117 @@
+<resources>
+    <string name="app_name">UTT\'APP</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Logo UTT Blanc</string>
+    <string name="nav_header_name">Alexis HELIOT</string>
+    <string name="nav_header_classgroup">ISI - 2</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_calendar">Calendrier</string>
+    <string name="menu_contacts">Contacts</string>
+    <string name="menu_prop_ue">Proposition d\'UE</string>
+    <string name="menu_end_cursus">Simulation de fin de Cursus</string>
+    <string name="menu_practical_inf">Infos Pratiques</string>
+    <string name="menu_messenger">Messenger UTT</string>
+    <string name="menu_notifications">Notifications</string>
+    <string name="menu_logout">Déconnexion</string>
+    <string name="home_button">Accueil</string>
+
+    <string name="example_date_start">5 Avr</string>
+    <string name="example_day_week">Ven.</string>
+    <string name="example_year">2019</string>
+
+    <string name="discover_app">Découvrir l\'application</string>
+    <string name="home_discover_calendar">Planning</string>
+    <string name="home_discover_contacts">Contacts</string>
+    <string name="home_discover_prop_ue">Prop. d\'UE</string>
+    <string name="home_discover_simulation">Simulation</string>
+    <string name="home_discover_infos_pratiques">Infos Pratiques</string>
+    <string name="home_discover_messenger">Messenger UTT</string>
+
+    <string name="tab_name_schedules">Horaires</string>
+    <string name="tab_name_scheme">Plan de l\'UTT</string>
+    <string name="tab_name_health">Santé</string>
+    <string name="utt_scheme">plan de l\'UTT</string>
+    <string name="practical_inf_state">Statut d\'ouverture des différents Services</string>
+    <string name="bde">BDE</string>
+    <string name="scd">SCD</string>
+    <string name="secretariat">Secrétariat</string>
+    <string name="schedule_scd_header">Horaires d\'ouverture du SCD</string>
+    <string name="schedule_scd_1">De 8h à 22h du lundi au vendredi</string>
+    <string name="schedule_scd_2">De 9h à 12h le samedi</string>
+    <string name="schedule_secretariat_header">Horaires d\'ouverture du Secrétariat</string>
+    <string name="schedule_secretariat_1">De 8h à 18h du lundi au vendredi</string>
+    <string name="schedule_secretariat_2">De 9h à 12h le samedi</string>
+    <string name="schedule_warning">Horaires réduits durant les périodes de vacances et d\'inter-semestres</string>
+
+    <string name="next_courses_header">Prochains cours :</string>
+    <string name="add_event_description">Ajouter un évènement</string>
+    <string name="next_event_header">Évènements :</string>
+
+    <string name="activate_notifs">Activer les Notifications</string>
+    <string name="alert_courses">Alerte Séances des Cours</string>
+    <string name="alert_internship">Alerte Réunion Stage</string>
+    <string name="alert_connexion">Alerte Connexion Parrain</string>
+
+    <string name="title_activity_login">Connexion</string>
+    <string name="prompt_password">Mot de passe</string>
+    <string name="action_sign_in">Connexion ou Inscription</string>
+    <string name="action_sign_in_short">CONNEXION</string>
+    <string name="invalid_username">Identifiant non reconnu</string>
+    <string name="invalid_password">Le mot de passe ne correspond pas</string>
+    <string name="login_failed">"Echec Connexion"</string>
+    <string name="prompt_username">Identifiant UTT</string>
+    <string name="login_header">Connexion au service UTT</string>
+
+    <string name="tab_event_courses">Cours</string>
+    <string name="tab_event_meeting">Réunion</string>
+    <string name="tab_event_event">Évènement</string>
+    <string name="calendar_add_header">Planning</string>
+
+    <string name="add_contact">Créer un nouveau contact</string>
+    <string name="contact_add_header">Ajouter un nouveau contact</string>
+    <string name="last_name_edit">Nom</string>
+    <string name="first_name_edit">Prénom</string>
+    <string name="mail">Mail</string>
+    <string name="position_edit">Fonction</string>
+    <string name="office_edit">Bureau</string>
+    <string name="next_meeting_text">Réunions :</string>
+    <string name="info_prop_ue">Ci-dessous une liste d\'UE conseillées pour le prochain semestre. Vous pouvez également en chercher une qui n\'est pas dans la liste.</string>
+
+    <string name="credits_header_a18">Crédits Automne 2018 (A18)</string>
+    <string name="credits_header_p19">Crédits Printemps 2019 (P19)</string>
+    <string name="branche_period_i1">ISI-1</string>
+    <string name="branche_period_i2">ISI-2</string>
+    <string name="total_credits_acquired">Total de Crédits Acquis : 32/180</string>
+    <string name="branche_header">Branche : ISI</string>
+    <string name="filiere_header">Filière : None</string>
+    <string name="observations_a18">Poursuite Normale. Bon Semestre, n\'oubliez pas que pour être diplômé(e), vous devez passer un semestre à l\'étranger.</string>
+
+    <string-array name="array_rappels">
+        <item>Avant l\'évènement</item>
+        <item>5 minutes avant</item>
+        <item>10 minutes avant</item>
+        <item>15 minutes avant</item>
+        <item>30 minutes avant</item>
+        <item>1 heure avant</item>
+        <item>4 heures avant</item>
+        <item>1 jour avant</item>
+        <item>2 jours avant</item>
+        <item>1 semaine avant</item>
+        <item>Aucun Rappel</item>
+    </string-array>
+
+    <string-array name="array_type_frequency">
+        <item>Évènement unique</item>
+        <item>Quotidien</item>
+        <item>Lundi au Vendredi</item>
+        <item>Hebdomadaire</item>
+        <item>Mensuel</item>
+        <item>Annuel</item>
+    </string-array>
+</resources>

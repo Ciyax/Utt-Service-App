@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ParametersNotifications">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/colorContentBackground">
+
+        <Switch
+            android:id="@+id/activate_notif"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="9dp"
+            android:background="@android:color/white"
+            android:checked="true"
+            android:paddingLeft="24dp"
+            android:paddingTop="18dp"
+            android:paddingRight="24dp"
+            android:paddingBottom="18dp"
+            android:switchTextAppearance="@style/TextAppearance.Custom"
+            android:text="@string/activate_notifs"
+            android:textAppearance="@style/TextAppearance.Custom"
+            android:textColor="@color/colorMenuItem"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:id="@+id/alerts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#CBCBCB"
+            android:orientation="vertical">
+
+            <Switch
+                android:id="@+id/alert_courses"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="@android:color/white"
+                android:checked="true"
+                android:paddingLeft="24dp"
+                android:paddingTop="18dp"
+                android:paddingRight="24dp"
+                android:paddingBottom="18dp"
+                android:switchTextAppearance="@style/TextAppearance.Custom"
+                android:text="@string/alert_courses"
+                android:textAppearance="@style/TextAppearance.Custom"
+                android:textColor="@color/colorMenuItem"
+                android:textSize="18sp" />
+
+            <Switch
+                android:id="@+id/alert_internship"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:background="@android:color/white"
+                android:checked="true"
+                android:paddingLeft="24dp"
+                android:paddingTop="18dp"
+                android:paddingRight="24dp"
+                android:paddingBottom="18dp"
+                android:switchTextAppearance="@style/TextAppearance.Custom"
+                android:text="@string/alert_internship"
+                android:textAppearance="@style/TextAppearance.Custom"
+                android:textColor="@color/colorMenuItem"
+                android:textSize="18sp" />
+
+            <Switch
+                android:id="@+id/alert_connexion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:background="@android:color/white"
+                android:checked="true"
+                android:paddingLeft="24dp"
+                android:paddingTop="18dp"
+                android:paddingRight="24dp"
+                android:paddingBottom="18dp"
+                android:switchTextAppearance="@style/TextAppearance.Custom"
+                android:text="@string/alert_connexion"
+                android:textAppearance="@style/TextAppearance.Custom"
+                android:textColor="@color/colorMenuItem"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

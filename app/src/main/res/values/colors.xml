@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#009CDE</color>
+    <color name="colorSecondary">#00FDF7</color>
+    <color name="colorThird">#FDD100</color>
+
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#FDD100</color>
+
+    <color name="colorMainText">#FFFFFF</color>
+    <color name="colorMenuItem">#3E3E3E</color>
+    <color name="colorMenuIcon">#757575</color>
+    <color name="colorContentBackground">#EFEFEF</color>
+
+    <color name="colorButtonPressed">#2A000000</color>
+    <color name="circle_contact_add">#FDFAE5</color>
+</resources>
