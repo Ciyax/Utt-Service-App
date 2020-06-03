@@ -6,6 +6,15 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 
 /**
@@ -27,6 +36,9 @@ public class PracticalInfHealth extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    private TextView healthTextView;
+    private Button healthRequestButton;
 
     public PracticalInfHealth() {
         // Required empty public constructor
@@ -63,7 +75,46 @@ public class PracticalInfHealth extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_practical_inf_health, container, false);
+        View view = inflater.inflate(R.layout.fragment_practical_inf_health, container, false);
+
+
+            // Test d'une requête get
+        // Vue qui accueillera le résultat de la requête
+        healthTextView = view.findViewById(R.id.health_text_view);
+        // Bouton qui permettra d'exécuter la requête
+        healthRequestButton = view.findViewById(R.id.health_get_request);
+
+        // Evènement au click du bouton
+        healthRequestButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Instantiate the RequestQueue.
+                RequestQueue queue = Volley.newRequestQueue(v.getContext());
+                // Utilisation de l'API SWAPI (Star Wars)
+                String url = "https://swapi.dev/api/people/1/";
+
+                // Request a string response from the provided URL.
+                StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                // Display the first 50 characters of the response string.
+                                healthTextView.setText("Response is: "+ response.substring(0,50));
+                            }
+                        }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        healthTextView.setText("That didn't work!");
+                    }
+                });
+
+                // Add the request to the RequestQueue.
+                // NB : à ne pas oublier sinon la requête n'est pas exécutée
+                queue.add(stringRequest);
+            }
+        });
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
