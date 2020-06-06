@@ -1,11 +1,22 @@
 package com.example.eg23_project;
 
+import android.annotation.SuppressLint;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import org.json.JSONObject;
+import com.android.volley.toolbox.Volley;
 
 
 /**
@@ -16,7 +27,7 @@ import android.view.ViewGroup;
  * Use the {@link PracticalInfHealth#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PracticalInfHealth extends Fragment {
+public class PracticalInfWeather extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -28,7 +39,10 @@ public class PracticalInfHealth extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public PracticalInfHealth() {
+    private TextView weatherTextView;
+    private Button weatherRequestButton;
+
+    public PracticalInfWeather() {
         // Required empty public constructor
     }
 
@@ -41,8 +55,8 @@ public class PracticalInfHealth extends Fragment {
      * @return A new instance of fragment PracticalInfHealth.
      */
     // TODO: Rename and change types and number of parameters
-    public static PracticalInfHealth newInstance(String param1, String param2) {
-        PracticalInfHealth fragment = new PracticalInfHealth();
+    public static PracticalInfWeather newInstance(String param1, String param2) {
+        PracticalInfWeather fragment = new PracticalInfWeather();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -63,8 +77,38 @@ public class PracticalInfHealth extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_practical_inf_weather, container, false);
+        View view = inflater.inflate(R.layout.fragment_practical_inf_weather, container, false);
+        // Vue qui accueillera le résultat de la requête
+        weatherTextView = view.findViewById(R.id.weather_text_view);
+        weatherRequestButton = view.findViewById(R.id.weather_get_request);
+        weatherRequestButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Instantiate the RequestQueue.
+                RequestQueue queue = Volley.newRequestQueue(v.getContext());
+                String url = "http://api.openweathermap.org/data/2.5/weather?q=Troyes,FR&APPID=0d9ccc12c5de785267f2f0a57d073279";
+                // Request a json response from the provided URL
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                        (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                // Display the first 50 characters of the response string.
+                                weatherTextView.setText("Response is: " + response.toString());
+                            }
+                        }, new Response.ErrorListener() {
+                            @SuppressLint("SetTextI18n")
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                weatherTextView.setText("That didn't work!");
+                            }
+                        });
+                // Add the request to the RequestQueue
+                queue.add(jsonObjectRequest);
+            }
+        });
+        return view;
     }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -103,7 +147,6 @@ public class PracticalInfHealth extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
 }

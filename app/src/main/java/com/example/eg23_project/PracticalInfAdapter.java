@@ -22,7 +22,7 @@ public class PracticalInfAdapter extends FragmentStatePagerAdapter {
                 fragment = new PracticalInfScheme();
                 break;
             case 2:
-                fragment = new PracticalInfHealth();
+                fragment = new PracticalInfWeather();
                 break;
         }
         return fragment;
