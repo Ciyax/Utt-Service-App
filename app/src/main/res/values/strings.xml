@@ -16,7 +16,8 @@
     <string name="menu_prop_ue">Proposition d\'UE</string>
     <string name="menu_end_cursus">Simulation de fin de Cursus</string>
     <string name="menu_practical_inf">Infos Pratiques</string>
-    <string name="menu_messenger">Messenger UTT</string>
+    <!--<string name="menu_messenger">Messenger UTT</string>-->
+    <string name="menu_messenger">Help Room UTT</string>
     <string name="menu_notifications">Notifications</string>
     <string name="menu_logout">Déconnexion</string>
     <string name="home_button">Accueil</string>
@@ -31,7 +32,8 @@
     <string name="home_discover_prop_ue">Prop. d\'UE</string>
     <string name="home_discover_simulation">Simulation</string>
     <string name="home_discover_infos_pratiques">Infos Pratiques</string>
-    <string name="home_discover_messenger">Messenger UTT</string>
+    <!--<string name="home_discover_messenger">Messenger UTT</string>-->
+    <string name="home_discover_messenger">Help Room UTT</string>
 
     <string name="tab_name_schedules">Horaires</string>
     <string name="tab_name_scheme">Plan de l\'UTT</string>
@@ -92,6 +94,18 @@
     <string name="filiere_header">Filière : None</string>
     <string name="observations_a18">Poursuite Normale. Bon Semestre, n\'oubliez pas que pour être diplômé(e), vous devez passer un semestre à l\'étranger.</string>
 
+    <string name="help_room_utt">Help Room UTT</string>
+    <string name="input_placeholder">Écrire un message</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="send_message">Envoyer</string>
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
     <string-array name="array_rappels">
         <item>Avant l\'évènement</item>
         <item>5 minutes avant</item>
@@ -105,7 +119,6 @@
         <item>1 semaine avant</item>
         <item>Aucun Rappel</item>
     </string-array>
-
     <string-array name="array_type_frequency">
         <item>Évènement unique</item>
         <item>Quotidien</item>

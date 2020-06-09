@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -20,7 +20,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:id="@+id/general_state_header"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
                         android:text="@string/practical_inf_state"
                         android:textSize="18sp"
                         app:fontFamily="@font/open_sans" />
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
                 <View
                     android:id="@+id/divider"
@@ -51,7 +51,7 @@
                     android:layout_marginRight="8dp"
                     android:background="#CCA701" />
 
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:id="@+id/general_state"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -128,7 +128,7 @@
                             android:textSize="18sp" />
 
                     </LinearLayout>
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
             <LinearLayout
@@ -136,7 +136,7 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:id="@+id/schedule_scd_header"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -157,7 +157,7 @@
                         android:text="@string/schedule_scd_header"
                         android:textSize="18sp"
                         app:fontFamily="@font/open_sans" />
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
                 <View
                     android:id="@+id/divider2"
@@ -167,7 +167,7 @@
                     android:layout_marginRight="8dp"
                     android:background="#00CCC7" />
 
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:id="@+id/schedule_scd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -207,7 +207,7 @@
                             app:fontFamily="@font/open_sans" />
                     </LinearLayout>
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
             </LinearLayout>
 
@@ -216,7 +216,7 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:id="@+id/schedule_secretariat_header"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -237,7 +237,7 @@
                         android:text="@string/schedule_secretariat_header"
                         android:textSize="18sp"
                         app:fontFamily="@font/open_sans" />
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
                 <View
                     android:id="@+id/divider3"
@@ -247,7 +247,7 @@
                     android:layout_marginRight="8dp"
                     android:background="#CCA701" />
 
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:id="@+id/schedule_secretariat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -287,11 +287,11 @@
                             app:fontFamily="@font/open_sans" />
                     </LinearLayout>
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
             </LinearLayout>
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/warning_schedule"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -315,9 +315,9 @@
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
                     app:fontFamily="@font/open_sans_semibold" />
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
     </ScrollView>
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

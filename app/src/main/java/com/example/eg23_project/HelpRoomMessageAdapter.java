@@ -18,7 +18,7 @@ public class HelpRoomMessageAdapter extends BaseAdapter {
     private List<HelpRoomMessage> helpRoomMessages = new ArrayList<HelpRoomMessage>();
     private Context context;
 
-    public MessageAdapter(Context context) {
+    public HelpRoomMessageAdapter(Context context) {
         this.context = context;
     }
 
@@ -63,8 +63,8 @@ public class HelpRoomMessageAdapter extends BaseAdapter {
 
             holder.name.setText(helpRoomMessage.getMemberData().getName());
             holder.messageBody.setText(helpRoomMessage.getText());
-            GradientDrawable drawable = (GradientDrawable) holder.avatar.getBackground();
-            drawable.setColor(Color.parseColor(helpRoomMessage.getMemberData().getColor()));
+            //GradientDrawable drawable = (GradientDrawable) holder.avatar.getBackground();
+            //drawable.setColor(Color.parseColor(helpRoomMessage.getMemberData().getColor()));
         }
 
         return convertView;

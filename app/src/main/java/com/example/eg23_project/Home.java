@@ -1,13 +1,14 @@
 package com.example.eg23_project;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
-import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.widget.CardView;
+import androidx.annotation.RequiresApi;
+import com.google.android.material.navigation.NavigationView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.cardview.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -248,10 +249,12 @@ public class Home extends Fragment {
             @Override
             public void onClick(View v) {
                 int id = R.id.nav_messenger;
-                Fragment fragment = new MessengerContacts();
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.main_content, fragment);
-                ft.commit();
+                //Fragment fragment = new MessengerContacts();
+                //FragmentTransaction ft = getFragmentManager().beginTransaction();
+                //ft.replace(R.id.main_content, fragment);
+                //ft.commit();
+
+                startActivity(new Intent(getContext(), HelpRoom.class));
 
                 NavigationView navigationView = getActivity().findViewById(R.id.nav_view);
                 int size = navigationView.getMenu().size();
