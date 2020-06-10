@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="5dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginEnd="5dp"
+    android:background="#E0E0E0"
+    android:orientation="horizontal"
+    android:baselineAligned="false">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:background="@android:color/white"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="false"
+            android:contentDescription="@string/twitter_avatar"
+            app:srcCompat="@mipmap/ic_launcher_utt_carre_round" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:background="@android:color/white"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/twitter_user_screenname"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="#3E3E3E"
+                android:textSize="18sp"
+                app:fontFamily="@font/open_sans_semibold" />
+
+            <TextView
+                android:id="@+id/tweet_message_date"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1"
+                android:gravity="end|bottom"
+                android:paddingStart="0dp"
+                android:paddingEnd="5dp"
+                android:textColor="#3E3E3E"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tweet_messsage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="15dp"
+            android:clickable="true"
+            android:contextClickable="true"
+            android:focusable="true"
+            android:linksClickable="true"
+            android:paddingStart="0dp"
+            android:paddingEnd="5dp"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textIsSelectable="true"
+            android:textSize="14sp"
+            app:fontFamily="@font/open_sans" />
+
+    </LinearLayout>
+
+</LinearLayout>

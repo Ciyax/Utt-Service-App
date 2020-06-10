@@ -22,7 +22,8 @@ public class PracticalInfAdapter extends FragmentStatePagerAdapter {
                 fragment = new PracticalInfScheme();
                 break;
             case 2:
-                fragment = new PracticalInfHealth();
+                // fragment = new PracticalInfHealth();
+                fragment = new PracticalInfTwitter();
                 break;
         }
         return fragment;
@@ -45,7 +46,8 @@ public class PracticalInfAdapter extends FragmentStatePagerAdapter {
                 charSequence = "Plan de l\'UTT";
                 break;
             case 2:
-                charSequence = "Santé";
+                // charSequence = "Santé";
+                charSequence = "Actualités";
                 break;
         }
 
