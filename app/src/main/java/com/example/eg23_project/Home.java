@@ -1,5 +1,6 @@
 package com.example.eg23_project;
 
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -11,8 +12,24 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.ImageRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -38,6 +55,17 @@ public class Home extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    private TextView cityText;
+    private TextView condDescr;
+    private Button weatherButton;
+    private TextView temp;
+    private TextView press;
+    private TextView windSpeed;
+    private TextView windDeg;
+    private static String IMG_URL = "http://openweathermap.org/img/w/";
+    private TextView hum;
+    private ImageView imgView;
+    private String url_img;
 
     public Home() {
         // Required empty public constructor
@@ -116,6 +144,77 @@ public class Home extends Fragment {
 
         // Récupération du bouton pour accéder directement au planning
         ImageButton calendarButton = (ImageButton) view.findViewById(R.id.goto_calendar);
+        // variables vue qui accueilleront le résulat de la requête
+        cityText = (TextView) view.findViewById(R.id.cityText);
+        condDescr = (TextView) view.findViewById(R.id.condDescr);
+        temp = (TextView) view.findViewById(R.id.temp);
+        hum = (TextView) view.findViewById(R.id.hum);
+        press = (TextView) view.findViewById(R.id.press);
+        windSpeed = (TextView) view.findViewById(R.id.windSpeed);
+        windDeg = (TextView) view.findViewById(R.id.windDeg);
+        imgView = (ImageView) view.findViewById(R.id.condIcon);
+        weatherButton = (Button) view.findViewById(R.id.weatherButton);
+        weatherButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Instantiate the RequestQueue
+                RequestQueue queue = Volley.newRequestQueue(v.getContext());
+                // Request a json object from the provided URL.
+                String urlpotter = "http://api.openweathermap.org/data/2.5/weather?q=Troyes&APPID=0d9ccc12c5de785267f2f0a57d073279";
+                JsonObjectRequest weatherRequest = new JsonObjectRequest
+                        (Request.Method.GET,(urlpotter), null, new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                try {
+                                    String city = "Troyes,FR";
+                                    cityText.setText(city);
+                                    JSONArray array = response.getJSONArray("weather");
+                                    JSONObject weather = array.getJSONObject(0);
+                                    String description = weather.getString("main");
+                                    condDescr.setText(description);
+
+                                    JSONObject main = response.getJSONObject("main");
+                                    String temperature = main.getString("temp");
+                                    float temper = Float.parseFloat(temperature);
+                                    String pressure = main.getString("pressure");
+                                    String humidity = main.getString("humidity");
+                                    temp.setText("" + Math.round(temper - 273.15) + "°C");
+                                    hum.setText("" + humidity + "%");
+                                    press.setText("" + pressure + " hPa");
+
+                                    JSONObject wind = response.getJSONObject("wind");
+                                    String speed = wind.getString("speed");
+                                    String deg = wind.getString("deg");
+                                    windSpeed.setText("" + speed + " mps");
+                                    windDeg.setText("," + deg + " Deg");
+                                    String img_icon = weather.getString("icon");
+                                    url_img = (IMG_URL+img_icon+"@2x.png");
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                    windDeg.setText("Something got wrong with the try catch");
+                                }
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                temp.setText("That didn't work !" + error.getMessage());
+                            }
+                        });
+                ImageRequest pictureRequest = new ImageRequest(url_img, new Response.Listener<Bitmap>() {
+                    @Override
+                    public void onResponse(Bitmap response) {
+                        imgView.setImageBitmap(response);
+                    }
+                }, 0, 0, ImageView.ScaleType.CENTER_INSIDE, Bitmap.Config.ARGB_4444, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        imgView.setImageResource(R.drawable.icon_default_weather);
+                    }
+                });
+                queue.add(weatherRequest);
+                queue.add(pictureRequest);
+            }
+        });
 
         // Association d'une action à sa CardView
         inf_pratiques.setOnClickListener(new View.OnClickListener() {
