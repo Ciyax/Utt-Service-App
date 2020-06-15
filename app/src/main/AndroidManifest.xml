@@ -50,6 +50,12 @@
             tools:ignore="LockedOrientationActivity" />
 
         <activity
+            android:name=".ProfileActivity"
+            android:configChanges="orientation"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
             android:name=".ParametersNotifications"
             android:configChanges="orientation"
             android:parentActivityName=".MainActivity"
@@ -67,7 +73,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.eg23_project.MainActivity" />
         </activity>
-
         <activity
             android:name=".AddEvent"
             android:configChanges="orientation"
@@ -79,7 +84,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.eg23_project.MainActivity" />
         </activity>
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

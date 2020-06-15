@@ -4,7 +4,20 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+
+import com.example.eg23_project.ui.login.LoginActivity;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.OptionalPendingResult;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 import com.google.android.material.navigation.NavigationView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -12,8 +25,11 @@ import androidx.cardview.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -37,7 +53,6 @@ public class Home extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
     private OnFragmentInteractionListener mListener;
 
     public Home() {
@@ -117,6 +132,9 @@ public class Home extends Fragment {
 
         // Récupération du bouton pour accéder directement au planning
         ImageButton calendarButton = (ImageButton) view.findViewById(R.id.goto_calendar);
+
+        // Récupération du bouton de déconnexion
+        Button profilebutton =view.findViewById(R.id.profile_button);
 
         // Association d'une action à sa CardView
         inf_pratiques.setOnClickListener(new View.OnClickListener() {
@@ -267,6 +285,12 @@ public class Home extends Fragment {
                 }
             }
         });
+        profilebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), ProfileActivity.class));
+            }
+        });
 
         return view;
     }
@@ -308,7 +332,7 @@ public class Home extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+        // TODO: Update argument type and name
     }
 }

@@ -1,9 +1,12 @@
 package com.example.eg23_project.ui.login;
 
 import android.app.Activity;
+
+import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.content.pm.SigningInfo;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
@@ -20,19 +23,34 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.eg23_project.MainActivity;
+import com.example.eg23_project.ProfileActivity;
 import com.example.eg23_project.R;
+import com.example.eg23_project.twitter.TwitterTweet;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.common.api.GoogleApiClient;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
     private LoginViewModel loginViewModel;
+    SignInButton signInButton;
+    private GoogleSignInClient gSignInClient;
+    private GoogleApiClient googleApiClient;
+    private static final int SIGN_IN=1;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
-
         final EditText usernameEditText = findViewById(R.id.username);
         final EditText passwordEditText = findViewById(R.id.password);
         final CardView loginButton = findViewById(R.id.login);
@@ -119,6 +137,33 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
             }
         });
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+        googleApiClient = new GoogleApiClient.Builder(this).enableAutoManage(this, this)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso).build();
+        // gSignInClient = GoogleSignIn.getClient(this, gso);
+        signInButton = findViewById(R.id.sign_in_button);
+        signInButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentSign = Auth.GoogleSignInApi.getSignInIntent(googleApiClient);
+                startActivityForResult(intentSign, SIGN_IN);
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == SIGN_IN) {
+            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            if (result.isSuccess()) {
+                TextView signInText = findViewById(R.id.signInText);
+                signInText.setText("Vous êtes bien connecté à Google !");
+                gotoHomeActivity();
+            }
+        }
     }
 
     private void updateUiWithUser(LoggedInUserView model) {
@@ -127,7 +172,18 @@ public class LoginActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
     }
 
+    private void gotoHomeActivity(){
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);// New activity
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
+    }
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
     }
 }

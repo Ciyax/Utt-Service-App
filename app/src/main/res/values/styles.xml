@@ -17,10 +17,6 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="Theme.Custom" parent="Theme.AppCompat">
-        <item name="android:calendarViewStyle">@style/Widget.CalendarView.Custom</item>
-    </style>
-
     <style name="Widget.CalendarView.Custom" parent="@android:style/Widget.Material.CalendarView">
         <item name="android:fontFamily">@font/open_sans</item>
     </style>
@@ -29,7 +25,4 @@
         <item name="android:fontFamily">@font/open_sans</item>
     </style>
 
-    <style name="TextAppearance.CustomBold" parent="@android:style/TextAppearance.Material">
-        <item name="android:fontFamily">@font/open_sans_bold</item>
-    </style>
 </resources>
