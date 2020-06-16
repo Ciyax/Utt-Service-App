@@ -3,8 +3,6 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Logo UTT Blanc</string>
     <string name="nav_header_name">Alexis HELIOT</string>
     <string name="nav_header_classgroup">ISI - 2</string>
@@ -18,6 +16,7 @@
     <string name="menu_practical_inf">Infos Pratiques</string>
     <!--<string name="menu_messenger">Messenger UTT</string>-->
     <string name="menu_messenger">Help Room UTT</string>
+    <string name="profile">Profil</string>
     <string name="menu_notifications">Notifications</string>
     <string name="menu_logout">Déconnexion</string>
     <string name="home_button">Accueil</string>
@@ -35,8 +34,6 @@
     <!--<string name="home_discover_messenger">Messenger UTT</string>-->
     <string name="home_discover_messenger">Help Room UTT</string>
 
-    <string name="tab_name_schedules">Horaires</string>
-    <string name="tab_name_scheme">Plan de l\'UTT</string>
     <string name="tab_name_health">Santé</string>
     <string name="utt_scheme">plan de l\'UTT</string>
     <string name="practical_inf_state">Statut d\'ouverture des différents Services</string>
@@ -60,9 +57,7 @@
     <string name="alert_internship">Alerte Réunion Stage</string>
     <string name="alert_connexion">Alerte Connexion Parrain</string>
 
-    <string name="title_activity_login">Connexion</string>
     <string name="prompt_password">Mot de passe</string>
-    <string name="action_sign_in">Connexion ou Inscription</string>
     <string name="action_sign_in_short">CONNEXION</string>
     <string name="invalid_username">Identifiant non reconnu</string>
     <string name="invalid_password">Le mot de passe ne correspond pas</string>
@@ -94,17 +89,9 @@
     <string name="filiere_header">Filière : None</string>
     <string name="observations_a18">Poursuite Normale. Bon Semestre, n\'oubliez pas que pour être diplômé(e), vous devez passer un semestre à l\'étranger.</string>
 
-    <string name="help_room_utt">Help Room UTT</string>
     <string name="input_placeholder">Écrire un message</string>
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="send_message">Envoyer</string>
-
     <!-- Strings used for fragments for navigation -->
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="twitter_avatar">twitter_avatar</string>
 
     <string-array name="array_rappels">

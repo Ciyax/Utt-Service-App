@@ -12,8 +12,6 @@
     <color name="colorMenuIcon">#757575</color>
     <color name="colorContentBackground">#EFEFEF</color>
 
-    <color name="colorButtonPressed">#2A000000</color>
     <color name="circle_contact_add">#FDFAE5</color>
 
-    <color name="twitter_blue">#c0deed</color>
 </resources>

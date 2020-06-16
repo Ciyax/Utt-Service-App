@@ -6,10 +6,6 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
-    <style name="Theme.Custom" parent="Theme.AppCompat">
-        <item name="android:calendarViewStyle">@style/Widget.CalendarView.Custom</item>
-    </style>
-
     <style name="Widget.CalendarView.Custom" parent="@android:style/Widget.Material.CalendarView">
         <item name="android:fontFamily">@font/open_sans</item>
     </style>
