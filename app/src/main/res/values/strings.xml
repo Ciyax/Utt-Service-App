@@ -16,7 +16,6 @@
     <string name="menu_practical_inf">Infos Pratiques</string>
     <!--<string name="menu_messenger">Messenger UTT</string>-->
     <string name="menu_messenger">Help Room UTT</string>
-    <string name="profile">Profil</string>
     <string name="menu_notifications">Notifications</string>
     <string name="menu_logout">Déconnexion</string>
     <string name="home_button">Accueil</string>
@@ -90,6 +89,8 @@
     <string name="observations_a18">Poursuite Normale. Bon Semestre, n\'oubliez pas que pour être diplômé(e), vous devez passer un semestre à l\'étranger.</string>
 
     <string name="input_placeholder">Écrire un message</string>
+
+    <string name="send_message">Envoyer</string>
 
     <!-- Strings used for fragments for navigation -->
     <string name="twitter_avatar">twitter_avatar</string>

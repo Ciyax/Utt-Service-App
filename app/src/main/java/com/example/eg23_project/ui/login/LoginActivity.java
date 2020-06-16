@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     SignInButton signInButton;
     private GoogleSignInClient gSignInClient;
     private GoogleApiClient googleApiClient;
-    private static final int SIGN_IN=1;
+    private static final int SIGN_IN = 1;
 
 
     @Override
@@ -160,6 +160,8 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             if (result.isSuccess()) {
                 TextView signInText = findViewById(R.id.signInText);
+                findViewById(R.id.sign_in_button).setVisibility(View.INVISIBLE);
+                System.out.println("CONNECTÉ !!");
                 signInText.setText("Vous êtes bien connecté à Google !");
                 gotoHomeActivity();
             }
