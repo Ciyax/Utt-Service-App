@@ -22,6 +22,9 @@ public class PracticalInfAdapter extends FragmentStatePagerAdapter {
                 fragment = new PracticalInfScheme();
                 break;
             case 2:
+                fragment = new PracticalInfStaticMap();
+                break;
+            case 3:
                 // fragment = new PracticalInfHealth();
                 fragment = new PracticalInfTwitter();
                 break;
@@ -31,7 +34,7 @@ public class PracticalInfAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return 4;
     }
 
     @Override
@@ -46,6 +49,9 @@ public class PracticalInfAdapter extends FragmentStatePagerAdapter {
                 charSequence = "Plan de l\'UTT";
                 break;
             case 2:
+                charSequence = "Ville de Troyes";
+                break;
+            case 3:
                 // charSequence = "Santé";
                 charSequence = "Actualités";
                 break;
