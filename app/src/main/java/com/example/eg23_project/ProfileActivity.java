@@ -75,7 +75,7 @@ public class ProfileActivity extends AppCompatActivity implements GoogleApiClien
         if(opr.isDone()){
             GoogleSignInResult result=opr.get();
             handleSignInResult(result);
-        }else{
+        }else {
             opr.setResultCallback(new ResultCallback<GoogleSignInResult>() {
                 @Override
                 public void onResult(@NonNull GoogleSignInResult googleSignInResult) {
@@ -93,6 +93,8 @@ public class ProfileActivity extends AppCompatActivity implements GoogleApiClien
             userId.setText(account.getId());
         }else{
             gotoLoginActivity();
+            System.out.println("Vous êtes bien déconnecté à Google !");
+            finish();
         }
     }
 
