@@ -73,6 +73,8 @@ public class SimuEndCursus extends Fragment implements PopupMenu.OnMenuItemClick
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_simulation_end_cursus, container, false);
+        ((MainActivity) getActivity()).setTitleAppBar("Cursus UTT");
+
         ImageButton moreOption = (ImageButton) view.findViewById(R.id.more_option);
 
         moreOption.setOnClickListener(new View.OnClickListener() {

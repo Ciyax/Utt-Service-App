@@ -1,5 +1,6 @@
 package com.example.eg23_project;
 
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
@@ -9,6 +10,21 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.eg23_project.dummy.Ue;
+import com.example.eg23_project.dummy.UeListContent;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -70,16 +86,56 @@ public class PropUe extends Fragment {
         View view = inflater.inflate(R.layout.fragment_prop_ue, container, false);
         ((MainActivity) getActivity()).setTitleAppBar("Propositions d'UE");
 
-        // Génération de la liste de cours et d'évènements à venir
-        Fragment branche = new UeItemBrancheAutomneFragment();
-        FragmentTransaction ft_branche = getFragmentManager().beginTransaction();
-        ft_branche.replace(R.id.ue_branche_automne_content, branche);
-        ft_branche.commit();
+        // Récupération des UE
+        RequestQueue queue = Volley.newRequestQueue(view.getContext());
+        // Request a json object from the provided URL.
+        String urlpotter = "https://qojn214t7l.execute-api.eu-central-1.amazonaws.com/prod/ue";
+        JsonObjectRequest ueRequest = new JsonObjectRequest
+                (Request.Method.GET,(urlpotter), null, new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            JSONArray ues = response.getJSONArray("UEs");
+                            for(int i = 0; i < ues.length(); i++) {
+                                JSONObject ue = ues.getJSONObject(i);
+                                int credits = ue.getInt("Credits");
+                                String libelle = ue.getString("Libelle");
+                                String ueId = ue.getString("UE_id");
+                                String type = ue.getString("Type");
 
-        Fragment filiere = new UeItemFiliereAutomneFragment();
-        FragmentTransaction ft_filiere = getFragmentManager().beginTransaction();
-        ft_filiere.replace(R.id.ue_filiere_automne_content, filiere);
-        ft_filiere.commit();
+                                if(ue.getString("Category").equals("[\"Branche\"]") && ue.getString("Period").equals("Automne")) {
+                                    UeListContent.addUeBrancheAutomne(new Ue(type, ueId, credits, libelle, libelle));
+                                } else if(!ue.getString("Category").equals("[\"Branche\"]") && ue.getString("Period").equals("Automne")) {
+                                    JSONArray category = ue.getJSONArray("Category");
+                                    for (int z = 0; z < category.length(); z++) {
+                                        ueId = ueId + " - " + category.getString(z);
+                                    }
+                                    UeListContent.addUeFiliereAutomne(new Ue(type, ueId, credits, libelle, libelle));
+                                }
+
+                                // Génération de la liste des UE disponibles
+                                Fragment branche = new UeItemBrancheAutomneFragment();
+                                FragmentTransaction ft_branche = getFragmentManager().beginTransaction();
+                                ft_branche.replace(R.id.ue_branche_automne_content, branche);
+                                ft_branche.commit();
+
+                                Fragment filiere = new UeItemFiliereAutomneFragment();
+                                FragmentTransaction ft_filiere = getFragmentManager().beginTransaction();
+                                ft_filiere.replace(R.id.ue_filiere_automne_content, filiere);
+                                ft_filiere.commit();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
+                    }
+                });
+
+        queue.add(ueRequest);
 
         return view;
     }

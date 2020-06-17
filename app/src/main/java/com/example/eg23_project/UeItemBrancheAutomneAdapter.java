@@ -37,11 +37,11 @@ public class UeItemBrancheAutomneAdapter extends RecyclerView.Adapter<UeItemBran
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
         holder.mTypeView.setText(mValues.get(position).getType());
-        holder.mLabelView.setText(mValues.get(position).getLabel());
+        holder.mLabelView.setText(mValues.get(position).getUE_id());
 
-        String subInf = mValues.get(position).getCredit() + " Cred.";
+        String subInf = mValues.get(position).getCredits() + " Cred.";
         holder.mCreditsView.setText(subInf);
-        holder.mDescriptionView.setText(mValues.get(position).getDescription());
+        holder.mDescriptionView.setText(mValues.get(position).getLibelle());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override

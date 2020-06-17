@@ -129,7 +129,7 @@
                             android:id="@+id/textView12"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="UE de Filière MPL - Automne"
+                            android:text="UE de Filières - Automne"
                             android:textColor="#616161"
                             android:textSize="25sp"
                             app:fontFamily="@font/open_sans" />
